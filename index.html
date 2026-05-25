@@ -786,6 +786,25 @@
   </div>
 </section>
 
+<!-- INTERNSHIP NOTE -->
+<div style="background: rgba(77,201,117,0.07); border-top: 1px solid rgba(77,201,117,0.15); border-bottom: 1px solid rgba(77,201,117,0.15); padding: 1.5rem 5rem; display:flex; align-items:center; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+  <div style="display:flex; align-items:center; gap:0.9rem;">
+    <span style="font-size:1.4rem;">🌱</span>
+    <div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.05rem; color:white; margin-bottom:0.2rem;">Volunteer-Based Role</div>
+      <div style="font-size:0.85rem; color:rgba(255,255,255,0.55); line-height:1.6;">This is an unpaid internship — built for learning, not earning. You'll grow your skills, build real experience, and be part of something that genuinely matters.</div>
+    </div>
+  </div>
+  <div style="width:1px; height:50px; background:rgba(77,201,117,0.2); flex-shrink:0; display:block;"></div>
+  <div style="display:flex; align-items:center; gap:0.9rem;">
+    <span style="font-size:1.4rem;">🚌</span>
+    <div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.05rem; color:white; margin-bottom:0.2rem;">Travel Covered for Offline Events</div>
+      <div style="font-size:0.85rem; color:rgba(255,255,255,0.55); line-height:1.6;">Whenever you show up in person for our programs, your travel costs are on us. Your commitment shouldn't cost you.</div>
+    </div>
+  </div>
+</div>
+
 <!-- APPLY -->
 <section class="apply-section" id="apply">
   <div class="apply-inner">
@@ -830,8 +849,8 @@
         <textarea placeholder="Tell us why you want to join and what you'd bring to the team..." id="f-why"></textarea>
       </div>
       <div class="form-group">
-        <label>Portfolio / LinkedIn / Facebook (optional)</label>
-        <input type="text" placeholder="Link to your work or profile" id="f-link">
+        <label>LinkedIn Profile</label>
+        <input type="url" placeholder="https://linkedin.com/in/your-profile" id="f-link">
       </div>
       <button class="submit-btn" onclick="handleSubmit()">Submit Application →</button>
       <div class="success-msg" id="success-msg">🌿 Almost done! WhatsApp is opening — just hit Send to complete your application.</div>
@@ -845,7 +864,13 @@
     <div class="foot-brand">PsychTalks — Theory · Therapy</div>
     <p style="margin-top:0.3rem;">Chattogram, Bangladesh</p>
   </div>
-  <p>© 2025 PsychTalks. Built for those who dare to care.</p>
+  <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+    <a href="https://www.facebook.com/psychtalksbd" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:0.5rem; color:var(--green-light); text-decoration:none; font-size:0.88rem; font-weight:500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      Visit us on Facebook
+    </a>
+    <p style="margin:0;">© 2025 PsychTalks. Built for those who dare to care.</p>
+  </div>
 </footer>
 
 <script>
@@ -875,8 +900,8 @@ function handleSubmit() {
   const why   = document.getElementById('f-why').value.trim();
   const link  = document.getElementById('f-link').value.trim();
 
-  if (!name || !email || !dept) {
-    alert('Please fill in your name, email, and chosen department.');
+  if (!name || !email || !dept || !link) {
+    alert('Please fill in your name, email, chosen department, and LinkedIn profile link.');
     return;
   }
 
@@ -890,7 +915,7 @@ function handleSubmit() {
     `🏫 *Institution:* ${uni || '—'}`,
     `🎯 *Department:* ${dept}`,
     `💬 *Why PsychTalks:* ${why || '—'}`,
-    `🔗 *Portfolio:* ${link || '—'}`,
+    `🔗 *LinkedIn:* ${link}`,
   ].join('\n');
 
   const waNumber = '8801905417624'; // +880 19 0541 7624
